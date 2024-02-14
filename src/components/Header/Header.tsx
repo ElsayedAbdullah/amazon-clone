@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import Logo from "../../images/header-logo.png";
 import "./Header.css";
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
+import { auth } from "../../firebase";
 
 const Header = () => {
+  const { user } = useContext(GlobalContext);
+
+  const logout = () => {
+    auth.signOut();
+  };
   return (
     <div className="header">
       <Link to="/">
@@ -22,12 +30,25 @@ const Header = () => {
         </svg>
       </div>
       <div className="header-nav">
-        <Link to={"/login"}>
-          <div className="header-option" onClick={() => {}}>
-            <span className="header-optionLineOne">Hello Guest</span>
-            <span className="header-optionLineTwo">{"Sign In"}</span>
+        {user ? (
+          <div className="header-option">
+            <span className="header-optionLineOne">Hi {user.email}</span>
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={logout}
+              className="header-optionLineTwo"
+            >
+              Sign Out
+            </span>
           </div>
-        </Link>
+        ) : (
+          <Link to="/login">
+            <div className="header-option" onClick={logout}>
+              <span className="header-optionLineOne">Hi Guest</span>
+              <span className="header-optionLineTwo">Sign In</span>
+            </div>
+          </Link>
+        )}
         <Link to="/orders">
           <div className="header-option">
             <span className="header-optionLineOne">Returns</span>

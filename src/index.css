@@ -17,3 +17,9 @@ body {
   background-color: aliceblue;
   min-height: 100vh;
 }
+
+.error {
+  color: black;
+  background-color: lightcoral;
+  padding: 10px;
+}
