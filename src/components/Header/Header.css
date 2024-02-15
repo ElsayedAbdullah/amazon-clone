@@ -1,11 +1,14 @@
 .header {
-  display: flex;
-  align-items: center;
   background-color: #131921;
   position: sticky;
-  padding: 10px;
   top: 0;
   z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  padding: 10px;
   gap: 40px;
 }
 
@@ -26,11 +29,13 @@
   padding: 4px 10px;
   border: none;
   width: 100%;
+  outline: none;
 }
 
 .header-searchIcon {
   padding: 2px;
   background-color: #cd9042;
+  cursor: pointer;
 }
 
 .header-nav {
@@ -44,6 +49,11 @@
   display: flex;
   flex-direction: column;
   color: white;
+  transition: 0.2s;
+}
+
+.header-nav .header-option:hover {
+  opacity: 0.7;
 }
 
 .header-optionLineOne {
@@ -58,12 +68,8 @@
 .header-optionBasket {
   display: flex;
   align-items: center;
+  gap: 10px;
   color: white;
-}
-
-.header-optionBasket .header-basketCount {
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .cartIcon {
