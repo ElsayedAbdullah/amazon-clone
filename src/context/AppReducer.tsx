@@ -17,6 +17,17 @@ const AppReducer = (
         ...state,
         cart: [...state.cart, action.payload as IProductProps],
       };
+    case "REMOVE_ITEM": {
+      const updatedCart = [...state.cart];
+      if (typeof action.payload === "number") {
+        updatedCart.splice(action.payload, 1);
+      }
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
+    }
 
     default:
       return state;

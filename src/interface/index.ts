@@ -14,7 +14,7 @@ export interface IProductProps {
 
 export interface IActionProps {
   type: string;
-  payload: User | IProductProps | null;
+  payload: User | IProductProps | number | null;
 }
 
 export interface IInitialStateProps {
