@@ -2,21 +2,17 @@ import { useContext } from "react";
 import "./Subtotal.css";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useNavigate } from "react-router-dom";
+import { getCartTotalPrice } from "../../utils";
 const Subtotal = () => {
   const { cart } = useContext(GlobalContext);
   const navigate = useNavigate();
 
-  const getCartTotalPrice = () => {
-    return cart.reduce((total, item) => {
-      return total + item.price;
-    }, 0);
-  };
   return (
     <div className="subtotal">
       <>
         <p>
           Subtotal ({cart.length} items):{" "}
-          <strong>${getCartTotalPrice()}</strong>
+          <strong>${getCartTotalPrice(cart)}</strong>
         </p>
         <small className="subtotal__gift"></small>
       </>
