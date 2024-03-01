@@ -1,0 +1,17 @@
+.checkout-content {
+  display: flex;
+  gap: 50px;
+  padding: 20px 0;
+  justify-content: space-between;
+  min-height: calc(100vh - 56px);
+}
+
+.checkout-title {
+  margin-right: 15px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.checkout-left {
+  width: 100%;
+}
